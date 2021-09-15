@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Document</title>
+</head>
+<body onload="loadGraph()">
+    <div class="graphContainer">
+        <canvas id="myChart" width="400" height="400" ></canvas>
+        <canvas id="myChart2" width="400" height="400" ></canvas>
+    </div>
+    <!-- <div class="graphHigh">
+        <canvas id="myChart2" width="400" height="400" ></canvas>
+    </div> -->
+    <div class="btnContainerBtn">
+        <button class="btnSet" onclick="setHighValue()">Setar valor!</button>
+    </div>
+
+    
+    
+</body>
+</html>
+
+<script>
+    function loadGraph(){
+        // document.getElementById("myChart").hidden = false;
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red'],
+            datasets: [{
+                label: '# of Votes',
+                data: [3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    }
+    
+
+    function setHighValue(){
+    var colorHighValue = 'purple';
+    var varGraph = document.getElementById('myChart');
+    varGraph.style.display = "none";
+    
+    var ctx = document.getElementById('myChart2').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red'],
+            datasets: [{
+                label: '# of Votes',
+                data: [30],
+                backgroundColor: [
+                   colorHighValue
+                ],
+                borderColor: [
+                    'rgba(100, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    }
+    </script>
+     

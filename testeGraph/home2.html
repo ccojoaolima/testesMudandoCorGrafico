@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Document</title>
+</head>
+<body onload="loadGraph()">
+    <div class="graphContainer">
+        <button onclick="getRandomNumber()">Gerar Valor</button>
+        <div id="generatedValue"></div>
+        <canvas id="myChart" width="400" height="400" ></canvas>
+        <canvas id="myChart2" width="400" height="400" ></canvas>
+    </div>
+
+    
+</body>
+</html>
+
+<script>
+var chosenColorGraph;
+var generatedNumber = 0;
+
+function loadGraph(){
+    generatedNumber = Math.random();
+
+    if(generatedNumber > 1){
+        chosenColorGraph = 'purple';
+    } else{
+        chosenColorGraph = 'blue';
+    }
+   
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red'],
+            datasets: [{
+                label: '# of Votes',
+                data: [3],
+                backgroundColor: [
+                   chosenColorGraph
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    }
+    
+
+
+
+
+   
+    </script>
+     
